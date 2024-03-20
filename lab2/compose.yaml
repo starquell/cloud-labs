@@ -1,0 +1,18 @@
+version: '3'
+services:
+  db:
+    image: mongodb/mongodb-community-server:6.0-ubi8
+    container_name: mongo
+    volumes:
+      - mongo:/data/db
+  server:
+    image: starquell/cloud-lab-2:latest
+    container_name: server
+    environment:
+      - MONGO_HOST=mongo
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+volumes:
+   mongo:

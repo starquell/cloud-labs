@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dumb Page</title>
+</head>
+<body>
+    <h1>My elephants 🐘</h1>
+    <ul>
+        <% elephants.forEach(function(e) { %>
+            <li><%= e.content %></li>
+        <% }); %>
+    </ul>
+    <form action="/elephant" method="post">
+        <input type="text" name="newElephant" required>
+        <button type="submit">Add elephant</button>
+    </form>
+</body>
+</html>
